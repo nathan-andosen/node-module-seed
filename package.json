@@ -1,9 +1,9 @@
 {
-  "name": "di-manager",
-  "description": "Dependency injector manager for typescript",
+  "name": "node-module-seed",
+  "description": "A repo to kickstart your next typescript node module",
   "main": "compiled/src/index.js",
   "types": "compiled/src/index.d.ts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "dependencies": {},
   "devDependencies": {
@@ -26,12 +26,8 @@
   "scripts": {
     "init": "bash ./scripts/init.sh",
     "dev": "grunt dev",
-    "test": "grunt test",
-    "tests": "grunt test",
-    "build": "grunt build",
-    "build-patch": "grunt build-patch",
-    "build-minor": "grunt build-minor",
-    "build-major": "grunt build-major",
+    "test": "grunt coverage",
+    "build": "bash ./scripts/build.sh",
     "coverage": "grunt coverage"
   },
   "nyc": {

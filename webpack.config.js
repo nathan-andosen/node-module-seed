@@ -7,12 +7,12 @@ var banner = 'My App v' + version + '\n' +
 
 module.exports = {
   entry: {
-    "MyClass" : "./src/index.ts"
+    "XApp" : "./src/index.ts"
   },
   output: {
     path: path.join(__dirname, "dist"),
     filename: "my-class.min.js",
-    library : ["[name]"],
+    library : ["XApp"],
     libraryTarget: 'umd'
   },
   resolve: {
@@ -34,11 +34,11 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false
+    //   }
+    // }),
     new webpack.BannerPlugin(banner),
     new webpack.optimize.OccurrenceOrderPlugin()
   ]

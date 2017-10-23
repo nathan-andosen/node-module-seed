@@ -12,24 +12,6 @@ module.exports = function(grunt) {
     compileBrowserTests : {
       cmd : 'bash ./scripts/browser-compile-unit-tests.sh'
     },
-    build : {
-      cmd : 'bash ./scripts/build.sh'
-    },
-    buildPatch : {
-      cmd : 'npm --no-git-tag-version version patch && bash ./scripts/build.sh'
-    },
-    buildMinor : {
-      cmd : 'npm --no-git-tag-version version minor && bash ./scripts/build.sh'
-    },
-    buildMajor : {
-      cmd : 'npm --no-git-tag-version version major && bash ./scripts/build.sh'
-    },
-    tests : {
-      cmd : 'node ./scripts/unit-tests.js'
-    },
-    testsWithOutput : {
-      cmd : 'node ./scripts/unit-tests.js --output'
-    },
     testCoverage: {
       cmd: 'bash ./scripts/test-coverage.sh'
     }
@@ -53,11 +35,6 @@ module.exports = function(grunt) {
   // our grunt commands
   grunt.registerTask("builddev", ["exec:tsc", "exec:testCoverage"]);
   grunt.registerTask("dev", ["builddev", "watch:dev"]);
-  grunt.registerTask("tests", ["exec:tsc", "exec:testsWithOutput", "exec:compileBrowserTests"]);
-  grunt.registerTask("test", ["tests"]);
+  grunt.registerTask("test", ["exec:tsc", "exec:testCoverage", "exec:compileBrowserTests"]);
   grunt.registerTask("coverage", ["exec:tsc", "exec:testCoverage"]);
-  grunt.registerTask("build", ["exec:build"]);
-  grunt.registerTask("build-patch", ["exec:buildPatch"]);
-  grunt.registerTask("build-minor", ["exec:buildMinor"]);
-  grunt.registerTask("build-major", ["exec:buildMajor"]);
 };
