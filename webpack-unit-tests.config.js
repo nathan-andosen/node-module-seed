@@ -1,7 +1,7 @@
-var webpack = require("webpack");
 var path = require('path');
 
 module.exports = {
+  mode: 'development',
   entry: "./spec/in-browser/index.js",
   output: {
     path: path.join(__dirname, "spec", "in-browser", "dist"),
@@ -13,8 +13,8 @@ module.exports = {
     extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
   },
   module: {
-    loaders: [
-      { test: /\.ts(x?)$/, loader: 'ts-loader' }
+    rules: [
+      { test: /\.ts(x?)$/, loader: 'ts-loader', exclude: /node_modules/ }
     ]
   },
   devtool : '#source-map'

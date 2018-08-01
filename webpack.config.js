@@ -1,11 +1,13 @@
 var webpack = require("webpack");
 var path = require('path');
 var version = require('./package.json').version;
+var isProduction = (process.env.NODE_ENV === 'production');
 
 var banner = 'My App v' + version + '\n' +
   '(c) ' + new Date().getFullYear() + ' Nathan Anderson';
 
 module.exports = {
+  mode: (isProduction) ? "production" : "development",
   entry: {
     "XApp" : "./src/index.ts"
   },
@@ -20,8 +22,8 @@ module.exports = {
     extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
   },
   module: {
-    loaders: [
-      { test: /\.ts(x?)$/, loader: 'ts-loader' }
+    rules: [
+      { test: /\.ts(x?)$/, loader: 'ts-loader', exclude: /node_modules/ }
     ]
   }
 };
@@ -32,11 +34,6 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
       }
     }),
     new webpack.BannerPlugin(banner),
