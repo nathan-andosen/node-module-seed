@@ -1,6 +1,6 @@
 ![Test Coverage-shield-badge-1](https://img.shields.io/badge/Test%20Coverage-100%25-brightgreen.svg)
 
-## Node Module Seed
+# Node Module Seed
 
 A repo to kickstart your next typescript private node module.
 
@@ -12,8 +12,18 @@ A repo to kickstart your next typescript private node module.
 * [Istanbul](https://istanbul.js.org/) - test coverage
 * [Webpack](https://webpack.js.org/) - module bundler
 
+# Getting started
 
-## Development
+To start your new node module using this seed app, clone this repo to a new
+directory:
+
+```
+git clone https://github.com/nathan-andosen/node-module-seed.git my-module-name
+cd my-module-name
+git remote rm origin
+```
+
+# Development
 
 ``npm run init`` - Setup the app for development (run once after cloning)
 
@@ -39,7 +49,7 @@ _Tests are automatically ran when you do a build._
 You can run the tests in a browser environment by opening the file 
 _/spec/in-browser/SpecRunner.html_.
 
-## Using the module
+# Using the module
 
 ### Typescript
 
