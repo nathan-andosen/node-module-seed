@@ -18,10 +18,10 @@
     "jasmine-terminal-reporter": "1.0.3",
     "nyc": "12.0.2",
     "ts-lint": "4.5.1",
-    "ts-loader": "4.4.2",
-    "typescript": "3.0.1",
-    "webpack": "4.16.3",
-    "webpack-cli": "3.1.0",
+    "ts-loader": "5.3.0",
+    "typescript": "3.1.6",
+    "webpack": "4.24.0",
+    "webpack-cli": "3.1.2",
     "yargs": "4.8.0"
   },
   "scripts": {
