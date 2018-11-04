@@ -5,6 +5,10 @@
       "outDir": "./compiled",
       "declaration": true, 
       "newLine": "LF",
+      "lib": [
+        "dom",
+        "es2015"
+      ],
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "allowJs": false,
