@@ -14,7 +14,7 @@ A repo to kickstart your next typescript private node module.
 
 # Getting started
 
-To start your new node module using this seed app, clone this repo to a new
+1. To start your new node module using this seed app, clone this repo to a new
 directory:
 
 ```
@@ -22,6 +22,8 @@ git clone https://github.com/nathan-andosen/node-module-seed.git my-module-name
 cd my-module-name
 git remote rm origin
 ```
+
+2. Now you can start working on your module. Delete both classes in the _/src_ directory and both of the spec files in the _/spec/ directory. __IMPORTANT:__ Do not delete the _always.spec.ts_ file just yet, you always need a spec file so that the generated output goes into the directory _/compiled/src/_. Once you create your own spec file, you can delete the _always.spec.ts_ file.
 
 # Development
 

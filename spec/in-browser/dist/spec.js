@@ -112,6 +112,7 @@ testsContext.keys().forEach(testsContext);
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./always.spec": "./spec/unit/always.spec.ts",
 	"./my-class-one.spec": "./spec/unit/my-class-one.spec.ts",
 	"./my-class-two.spec": "./spec/unit/my-class-two.spec.ts"
 };
@@ -135,6 +136,22 @@ webpackContext.keys = function webpackContextKeys() {
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
 webpackContext.id = "./spec/unit sync recursive .spec$";
+
+/***/ }),
+
+/***/ "./spec/unit/always.spec.ts":
+/*!**********************************!*\
+  !*** ./spec/unit/always.spec.ts ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+describe('Always have a spec', function () {
+    it('should always have a spec test', function () {
+        expect(true).toEqual(true);
+    });
+});
+
 
 /***/ }),
 
