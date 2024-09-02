@@ -17,5 +17,5 @@ module.exports = {
       { test: /\.ts(x?)$/, loader: 'ts-loader', exclude: /node_modules/ }
     ]
   },
-  devtool : '#source-map'
+  devtool : 'source-map'
 };

@@ -1,3 +1,4 @@
+(async () => {
 var Jasmine = require('jasmine');
 var Reporter = require('jasmine-terminal-reporter');
 
@@ -8,15 +9,15 @@ var jasmine = new Jasmine();
 
 jasmine.loadConfigFile('spec/support/jasmine.json');
 
+console.log('Starting unit tests...');
+jasmine.exitOnCompletion = false;
+const result = await jasmine.execute();
 
-jasmine.onComplete(function(passed) {
-  if(passed) {
-    console.log('All specs have passed');
-  }
-  else {
-    console.log('At least one spec has failed');
-  }
-});
+if (result.overallStatus === 'passed') {
+  console.log('All specs have passed');
+} else {
+  console.log('At least one spec has failed');
+}
 
 // add our reporter
 if(showOutput){
@@ -26,5 +27,4 @@ if(showOutput){
   jasmine.addReporter(reporter);
 }
 
-console.log('Starting unit tests...');
-jasmine.execute();
+})()

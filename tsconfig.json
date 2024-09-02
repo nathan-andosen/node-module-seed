@@ -12,7 +12,6 @@
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "allowJs": false,
-      "watch": false,
       "removeComments": true,
       "diagnostics": false,
       "sourceMap": true

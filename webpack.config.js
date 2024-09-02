@@ -6,7 +6,7 @@ var isProduction = (process.env.NODE_ENV === 'production');
 var banner = 'My App v' + version + '\n' +
   '(c) ' + new Date().getFullYear() + ' Nathan Anderson';
 
-module.exports = {
+var config = {
   mode: (isProduction) ? "production" : "development",
   entry: {
     "XApp" : "./src/index.ts"
@@ -25,20 +25,28 @@ module.exports = {
     rules: [
       { test: /\.ts(x?)$/, loader: 'ts-loader', exclude: /node_modules/ }
     ]
-  }
+  },
+  plugins: [
+    new webpack.BannerPlugin({
+      banner,
+      stage: webpack.Compilation.PROCESS_ASSETS_STAGE_REPORT
+    })
+  ],
+  devtool: false
 };
 
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports.plugins = [
+  var plugins = [
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
       }
-    }),
-    new webpack.BannerPlugin(banner),
-    new webpack.optimize.OccurrenceOrderPlugin()
-  ]
+    })
+  ];
+  config.plugins = config.plugins.concat(plugins);
 } else {
-  module.exports.devtool = '#source-map'
+  config.devtool = 'source-map';
 }
+
+module.exports = config;
